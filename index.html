@@ -43,6 +43,10 @@ const codeInput=document.getElementById('code');
 const errMsg=document.getElementById('errMsg');
 const btn=document.getElementById('loginBtn');
 
+// SPA 路由恢复：如果是从 404.html 重定向来的，保存原始路径
+var spaPath=sessionStorage.getItem('spa-redirect');
+if(spaPath){sessionStorage.removeItem('spa-redirect');sessionStorage.setItem('gh-spa-path',spaPath)}
+
 // 已登录则跳转
 if(localStorage.getItem('hy-fire-auth')){window.location.href='/dashboard'}
 
